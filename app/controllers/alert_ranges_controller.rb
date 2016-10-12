@@ -1,5 +1,6 @@
 class AlertRangesController < ApplicationController
   before_action :set_alert_range, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /alert_ranges
   # GET /alert_ranges.json
