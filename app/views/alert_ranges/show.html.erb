@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @alert_range.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @alert_range.end_time %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @alert_range.status %>
+</p>
+
+<p>
+  <strong>Interval:</strong>
+  <%= @alert_range.interval %>
+</p>
+
+<%= link_to 'Edit', edit_alert_range_path(@alert_range) %> |
+<%= link_to 'Back', alert_ranges_path %>

@@ -1,0 +1,1 @@
+json.array! @alert_ranges, partial: 'alert_ranges/alert_range', as: :alert_range

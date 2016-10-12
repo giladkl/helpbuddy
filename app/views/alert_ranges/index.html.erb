@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Alert Ranges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Status</th>
+      <th>Interval</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alert_ranges.each do |alert_range| %>
+      <tr>
+        <td><%= alert_range.start_time %></td>
+        <td><%= alert_range.end_time %></td>
+        <td><%= alert_range.status %></td>
+        <td><%= alert_range.interval %></td>
+        <td><%= link_to 'Show', alert_range %></td>
+        <td><%= link_to 'Edit', edit_alert_range_path(alert_range) %></td>
+        <td><%= link_to 'Destroy', alert_range, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alert Range', new_alert_range_path %>

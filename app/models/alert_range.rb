@@ -1,0 +1,2 @@
+class AlertRange < ApplicationRecord
+end
