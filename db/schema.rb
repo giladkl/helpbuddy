@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012035014) do
+ActiveRecord::Schema.define(version: 20161022112123) do
 
   create_table "alert_ranges", force: :cascade do |t|
     t.datetime "start_time"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20161012035014) do
     t.integer  "interval"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "next_alert"
   end
 
   create_table "users", force: :cascade do |t|
