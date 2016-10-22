@@ -12,16 +12,6 @@
  *
  *= require_tree .
  *= require_self
- */
-/*
- *
- *   INSPINIA - Responsive Admin Theme
- *   version 2.6.2
- *
-*/
-/*
-Lumino Admin Bootstrap Template
-Version 1.0
 */
 
 
@@ -591,7 +581,7 @@ a.bg-danger:hover {
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: #fff;
 	background-color: #30a5ff;
-}*/
+}
 
 .sidebar ul.nav ul,
 .sidebar ul.nav ul li {
