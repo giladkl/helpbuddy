@@ -62,6 +62,16 @@ class AlertRangesController < ApplicationController
     end
   end
 
+  def fire_alerts
+    alert_ranges = AlertRange.all_alert_ranges_active(Time.now)
+    alert_ranges.each do |alert_range|
+      if alert_range.is_alarm_needed(Time.now)
+        alert_range.alert()
+      end
+    end
+
+    render plain: "hi"
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alert_range
