@@ -5,7 +5,7 @@ class PhonesController < ApplicationController
   # GET /phones
   # GET /phones.json
   def index
-    @phones = Phone.where(user_id: current_user.id)
+    @phones = Phone.where(user_id: current_user.id).order(:hierarchy_location)
   end
 
   # GET /phones/1
@@ -16,6 +16,7 @@ class PhonesController < ApplicationController
   # GET /phones/new
   def new
     @phone = Phone.new
+    @phone.role = params[:role]
   end
 
   # GET /phones/1/edit
@@ -63,6 +64,16 @@ class PhonesController < ApplicationController
     end
   end
 
+  def update_priority_list
+    counter = 0
+    params[:priority_list].each do |id|
+      phone = Phone.find(id)
+      phone.hierarchy_location = counter
+      phone.save
+      counter += 1
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_phone
@@ -71,6 +82,6 @@ class PhonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def phone_params
-      params.require(:phone).permit(:member_id, :role, :hierarchy_location)
+      params.require(:phone).permit(:user_id, :role, :hierarchy_location, :phone_number)
     end
 end

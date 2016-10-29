@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div class="row">
   <div class="col-md-6">
     <h1>Your phones</h1>
@@ -8,27 +7,19 @@
     <div class="col-md-10">
       <div class="col-md-1" style="margin:0;padding:0;">
         <ul id="sortable-numbers" class="list-group">
-          <li class="list-group-item">1</li>
-          <li class="list-group-item">2</li>
-          <li class="list-group-item">3</li>
-          <li class="list-group-item">4</li>
-          <li class="list-group-item">5</li>
-          <li class="list-group-item">6</li>
-          <li class="list-group-item">7</li>
+          <% for i in 1..@phones.admin_number.count do %>
+            <li class="list-group-item"> <%= i %> </li>
+          <% end %>
         </ul>
       </div>
       <div class="col-md-11" style="margin:0;padding:0;">
         <ul id="sortable" class="list-group">
-          <li class="list-group-item">Item 1</li>
-          <li class="list-group-item">Item 2</li>
-          <li class="list-group-item">Item 3</li>
-          <li class="list-group-item">Item 4</li>
-          <li class="list-group-item">Item 5</li>
-          <li class="list-group-item">Item 6</li>
-          <li class="list-group-item">Item 7</li>
+          <% @phones.admin_number.each do |phone| %>
+            <li class="list-group-item" id="<%= phone.id %>"> <%= phone.phone_number %> </li>
+          <% end %>
         </ul>
       </div>
-      <a href="<%= new_phone_path %>" class="col-md-12 btn btn-default">Add new phone</a>
+      <a href="<%= new_phone_path(role: :admin_number) %>" class="col-md-12 btn btn-default">Add new phone</a>
     </div>
   </div>
   <div class="col-md-6">
@@ -37,15 +28,11 @@
     <br>
     <div class="col-md-10">
       <ul id="sortable-numbers" class="list-group">
-        <li class="list-group-item">1</li>
-        <li class="list-group-item">2</li>
-        <li class="list-group-item">3</li>
-        <li class="list-group-item">4</li>
-        <li class="list-group-item">5</li>
-        <li class="list-group-item">6</li>
-        <li class="list-group-item">7</li>
+        <% @phones.friend_number.each do |phone| %>
+          <li class="list-group-item"> <%= phone.phone_number %></li>
+        <% end %>
       </ul>
-      <a href="<%= new_phone_path %>" class="col-md-12 btn btn-default">Add new phone</a>
+      <a href="<%= new_phone_path(role: :friend_number) %>" class="col-md-12 btn btn-default">Add new phone</a>
     </div>
   </div>
 </div>

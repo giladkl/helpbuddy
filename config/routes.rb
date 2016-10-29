@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root "alert_ranges#index"
 
-  resources :phones
+  resources :phones do
+	  collection do
+	  	put 'update_priority_list'
+	  end
+  end
   resources :alert_ranges do
     collection do
       get 'fire_alerts'

@@ -17,6 +17,6 @@ class AlertRange < ApplicationRecord
 	end
 
 	def alert
-		
+		self.user.phones.order(:hierarchy_location)
 	end
 end
