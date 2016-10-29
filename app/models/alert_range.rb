@@ -1,6 +1,6 @@
 class AlertRange < ApplicationRecord
-
- scope :all_alert_ranges_active, -> (time) { where("start_time <= ? AND end_time >= ?", time, time) }
+	belongs_to :user
+ 	scope :all_alert_ranges_active, -> (time) { where("start_time <= ? AND end_time >= ?", time, time) }
 
 	def is_alarm_needed(time)
 		if self.start_time <= time and self.end_time >= time
@@ -17,5 +17,6 @@ class AlertRange < ApplicationRecord
 	end
 
 	def alert
+		
 	end
 end

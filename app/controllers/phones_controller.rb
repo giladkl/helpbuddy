@@ -5,7 +5,7 @@ class PhonesController < ApplicationController
   # GET /phones
   # GET /phones.json
   def index
-    @phones = Phone.all
+    @phones = Phone.where(user_id: current_user.id)
   end
 
   # GET /phones/1
@@ -26,6 +26,7 @@ class PhonesController < ApplicationController
   # POST /phones.json
   def create
     @phone = Phone.new(phone_params)
+    @phone.user = current_user
 
     respond_to do |format|
       if @phone.save

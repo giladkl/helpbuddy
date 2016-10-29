@@ -5,7 +5,7 @@ class AlertRangesController < ApplicationController
   # GET /alert_ranges
   # GET /alert_ranges.json
   def index
-    @alert_ranges = AlertRange.all
+    @alert_ranges = AlertRange.where(user_id: current_user.id)
   end
 
   # GET /alert_ranges/1
@@ -25,7 +25,9 @@ class AlertRangesController < ApplicationController
   # POST /alert_ranges
   # POST /alert_ranges.json
   def create
+    
     @alert_range = AlertRange.new(alert_range_params)
+    @alert_range.user = current_user
 
     respond_to do |format|
       if @alert_range.save
