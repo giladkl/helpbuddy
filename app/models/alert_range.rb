@@ -19,5 +19,6 @@ class AlertRange < ApplicationRecord
 	def alert
 		admin_phone_numbers = self.user.phones.order(:hierarchy_location)
 		admin_phone_numbers.each do |phone number|
+		end
 	end
 end
